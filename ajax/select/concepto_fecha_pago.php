@@ -28,5 +28,5 @@ value="<?php echo date('Y-m-d'); ?>"
 </div>
 <div class="col-md-2">
 <div style="padding-bottom: 24px"></div>
-<button class="btn btn-success"><i class="fa fa-plus"></i> CREAR</button>
+<button class="btn btn-success"><i class="fa fa-search"></i> CONSULTAR</button>
 </div>

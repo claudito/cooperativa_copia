@@ -89,7 +89,7 @@ if ($tipo=='diario')
 $query     = "
 SELECT p.id,p.codigo_puesto,pt.descripcion puesto,c.descripcion concepto,
 p.id_concepto,p.costo,p.pago,p.fecha,p.tipo,p.fecha_pago,p.fecha_vencimiento,
-p.month,p.year,p.day FROM pago as p
+p.month,p.year,p.day,p.fecha_actualizacion FROM pago as p
 INNER JOIN puesto as pt ON p.codigo_puesto=pt.codigo
 INNER JOIN concepto as c ON p.id_concepto=c.id
 WHERE year=:year AND month=:month AND  p.codigo_puesto=:puesto 
@@ -111,7 +111,7 @@ else
 $query     = "
 SELECT p.id,p.codigo_puesto,pt.descripcion puesto,c.descripcion concepto,
 p.id_concepto,p.costo,p.pago,p.fecha,p.tipo,p.fecha_pago,p.fecha_vencimiento,
-p.month,p.year,p.day FROM pago as p
+p.month,p.year,p.day,p.fecha_actualizacion FROM pago as p
 INNER JOIN puesto as pt ON p.codigo_puesto=pt.codigo
 INNER JOIN concepto as c ON p.id_concepto=c.id
 WHERE year=:year AND month=:month AND  p.codigo_puesto=:puesto 
@@ -137,6 +137,63 @@ return $result;
 echo "ERROR: " . $e->getMessage();
 
 }
+
+
+}
+
+
+
+function consulta($id,$campo)
+{
+
+try {
+
+$conexion   = Conexion::get_conexion();
+$query      =  "SELECT * FROM pago WHERE id=:id";
+$statement  =  $conexion->prepare($query);
+$statement->bindParam(':id',$id);
+$statement->execute();
+$result    = $statement->fetch();
+return $result[$campo];
+
+} catch (Exception $e) {
+
+echo "ERROR: " . $e->getMessage();
+    
+}
+
+
+
+}
+
+
+function actualizar($id,$pago,$fecha)
+{
+
+try {
+
+$conexion   = Conexion::get_conexion();
+$query      =  "UPDATE pago SET pago=:pago,fecha_actualizacion=:fecha  WHERE id=:id";
+$statement  =  $conexion->prepare($query);
+$statement->bindParam(':id',$id);
+$statement->bindParam(':pago',$pago);
+$statement->bindParam(':fecha',$fecha);
+if ($statement) 
+{
+ $statement->execute();
+ return "ok";
+}
+else
+{
+ return "error";
+}
+
+} catch (Exception $e) {
+
+echo "ERROR: " . $e->getMessage();
+    
+}
+
 
 
 }
