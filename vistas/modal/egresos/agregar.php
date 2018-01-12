@@ -8,9 +8,10 @@
 <h4 class="modal-title" id=correlativo>Cargando..</h4>
 </div>
 <div class="modal-body">
-
+<form role="form" method="post" id="agregar" autocomplete="off">
 <input type="hidden" name="id_personal" id="" value="<?php echo $_SESSION[KEY.ID] ?>">
 <input type="hidden" name="tipo" id="" class="form-control" value="EC">
+
 
 <div class="row">
 <div class="col-md-6">
@@ -75,7 +76,8 @@ foreach ($personal->lista() as $key => $value): ?>
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-<button type="button" class="btn btn-primary">Agregar</button>
+<button type="submit" class="btn btn-primary">Agregar</button>
+</form>
 </div>
 </div>
 </div>

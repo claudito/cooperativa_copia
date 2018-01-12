@@ -170,6 +170,29 @@ return $result;
 }
 
 
+function lista_socio()
+{
+	
+try {
+
+$conexion   =  Conexion::get_conexion();
+$query      =  "SELECT * from comerciante where tipo='socio'";
+$statement  =  $conexion->prepare($query);
+$statement->execute();
+$result  =  $statement->fetchAll();
+return $result;
+
+} catch (Exception $e) {
+	
+
+  echo "Error:".$e->getMessage();
+
+}
+
+
+}
+
+
 
 
 

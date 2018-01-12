@@ -11,6 +11,7 @@ Html::header();
 <script>
 $(document).ready(function() {
 	$('#consulta').DataTable( {
+		"ordering": false,
 		dom: 'Bfrtip',
 		buttons: [
 			/*'copyHtml5',*/
@@ -41,34 +42,48 @@ $(document).ready(function() {
 <table id="consulta" class="table table-condensed">
 <thead>
 <tr class="info">
-<th>N°</th>
-<th>MONTO</th>
+<th>IT</th>
+<th>NÚMERO</th>
 <th>PERSONAL</th>
-<th>NUMERO</th>
 <th>CONCEPTO</th>
 <th>FECHA REGISTRO</th>
 <th>DOCUMENTO</th>
+<th class="text-center">MONTO</th>
    
 </tr>
 </thead>
 <tbody>
 <?php 
+$count= 0;
 $item = 1;  
 foreach (Egresos::lista() as $key => $value): ?>
 
 <tr>
 <td><?php echo $item++;?></td>
-<td><?php echo $value['monto'] ?></td>
-<td><?php echo $value['personal'] ?></td>
 <td><?php echo $value['numero'] ?></td>
+<td><?php echo $value['personal'] ?></td>
 <td><?php echo $value['concepto'] ?></td>
-<td><?php echo $value['fecha_registro'] ?></td>
+<td><?php echo date_format(date_create($value['fecha_registro']),'d/m/Y')?></td>
 <td><?php echo $value['documento'] ?></td>
+<td class="text-center"><?php echo round($value['monto'],2) ?></td>
 
+<?php $count = $count + $value['monto'];
+ ?>
 </tr>
 
 <?php endforeach ?>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>TOTAL:</td>
+<td class="text-center"><?php echo $count; ?></td>
+</tr>
+
 </tbody>
+
 </table>
 </div>
 </div>

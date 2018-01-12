@@ -45,9 +45,8 @@ $(document).ready(function() {
 <th>NOMBRES</th>
 <th>APELLIDOS</th>
 <th>COSTO</th>
-<th>DÍA</th>
-<th>MES</th>
-<th>AÑO</th>
+<th>APERTURA DE PLANILLA</th>
+
 </tr>
 </thead>
 <tbody>
@@ -57,9 +56,8 @@ $(document).ready(function() {
 <td><?php echo $value['nombres'] ?></td>
 <td><?php echo $value['apellidos'] ?></td>
 <td><?php echo round($value['costo'],2) ?></td>
-<td><?php echo date_format(date_create($value['fecha_emision']),'d');?></td>
-<td><?php echo date_format(date_create($value['fecha_emision']),'m');?></td>
-<td><?php echo date_format(date_create($value['fecha_emision']),'Y');?></td>
+<td><?php echo date_format(date_create($value['fecha_emision']),'d/m/Y');?></td>
+
 </tr>
 <?php endforeach ?>
 </tbody>
