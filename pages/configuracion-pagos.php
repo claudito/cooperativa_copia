@@ -5,13 +5,9 @@ Assets::principal('Configuración de  Pagos');
 Assets::datatables();
 Assets::sweetalert();
 Html::header();
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('PAGOS ','CONFIGURACIÓN DE PAGOS'); #cinta de ubicación
 ?>
-
-<div class="row">
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-</div>
 
 
 <form  id="agregar">

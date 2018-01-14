@@ -9,22 +9,15 @@ $assets ->principal('Presupuesto Anual');
 $assets ->datatables();
 $assets->sweetalert();
 $html   ->header();
-$carpeta = "presupuesto-anual";?>
-
-<style>table{font-size: 11px;}</style>
-<?php 
+$carpeta = "presupuesto-anual";
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('ANALÍTICAS','PRESUPUESTO ANUAL'); #cinta de ubicación
 include'../vistas/modal/'.$carpeta.'/agregar.php';#modal agregar
 include'../vistas/modal/'.$carpeta.'/eliminar.php';#modal eliminar
 
 ?>
 
-
-<div class="row">	
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-</div>
-
+<style>table{font-size: 11px;}</style>
 <div class="row">
 <div class="col-md-12">
 	

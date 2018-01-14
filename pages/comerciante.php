@@ -8,24 +8,13 @@ $assets ->principal('Comerciantes');
 $assets ->datatables();
 $assets->sweetalert();
 $html   ->header();
-
 $folder =  "comerciante";
-
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('BASE DE DATOS','COMERCIANTE'); #cinta de ubicación
 include'../vistas/modal/'.$folder.'/agregar.php';#modal agregar
 include'../vistas/modal/'.$folder.'/eliminar.php';#modal eliminar
 
 ?>
-
-
-
-<div class="row">
-	
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-
-</div>
-
 
 
 <div class="row">

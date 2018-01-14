@@ -2,27 +2,19 @@
 include'../autoload.php';
 include'../session.php';
 
-$assets  =  new Assets();
-$html    =  new Html();
-$assets ->principal('Asociar Comerciante y Puesto');
-$assets ->datatables();
-$assets->sweetalert();
-$html   ->header();
 
+Assets::principal('Asociar Comerciante y Puesto');
+Assets::datatables();
+Assets::sweetalert();
+Html::header();
 $folder =  "comerciante_puesto";
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('PAGOS ','ASOCIAR COMERCIANTE Y PUESTO'); #cinta de ubicación
 include'../vistas/modal/'.$folder.'/eliminar.php';#modal eliminar
 
 ?>
 
 
-
-<div class="row">
-	
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-
-</div>
 
 <div id="loader_agregar"></div>
 <div id="tabla_agregar"></div>
@@ -47,6 +39,6 @@ include'../vistas/modal/'.$folder.'/eliminar.php';#modal eliminar
 <script>loadModalAgregar()</script>
 <?php 
 
-$html->footer('Cooperativa');
+Html::footer('Cooperativa');
 
  ?>

@@ -6,6 +6,8 @@ Assets::datatables();
 Assets::datatables_export();
 Assets::sweetalert();
 Html::header();
+Html::nav('../..'); #barra de navegación
+Html::breadcrumbs('ANALÍTICAS','LISTA DE SOCIOS'); #cinta de ubicación
 ?>
 
 <script>
@@ -22,11 +24,6 @@ $(document).ready(function() {
 } );
 </script>
 
-<div class="row">
-<div class="col-md-12">
-<?php include'../../vistas/nav.php'; ?>
-</div>
-</div>
 
 
 <div class="row">

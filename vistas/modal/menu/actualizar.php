@@ -15,7 +15,7 @@ $menu  = new Menu();
 <div class="form-group">
 <label >DESCRIPCIÓN</label>
 <input type="text" name="descripcion"  class="form-control" 
- value="<?php echo $menu->consulta($id,'descripcion'); ?>" >
+ value="<?php echo $menu->consulta($id,'descripcion'); ?>" onchange="Mayusculas(this)"> 
 </div>
 
 <div class="form-group">

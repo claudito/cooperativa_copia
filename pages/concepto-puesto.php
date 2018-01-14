@@ -8,23 +8,13 @@ $assets ->principal('Asociar Concepto y Puesto');
 $assets ->datatables();
 $assets->sweetalert();
 $html   ->header();
-
 $folder =  "concepto_puesto";
-
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('PAGOS ','ASOCIAR CONCEPTO Y PUESTO'); #cinta de ubicación
 include'../vistas/modal/'.$folder.'/agregar.php';#modal agregar
 include'../vistas/modal/'.$folder.'/eliminar.php';#modal eliminar
 
 ?>
-
-<div class="row">
-	
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-
-</div>
-
-
 
 <div class="row">
 <div class="col-md-12">

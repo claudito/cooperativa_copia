@@ -7,18 +7,13 @@ Assets::datatables();
 Assets::sweetalert();
   Html::header();
 $carpeta = "plan-mov-cab";
-
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('GESTIÓN','PLANILLA DE GASTOS DE  MOVILIDAD'); #cinta de ubicación
 include'../vistas/modal/'.$carpeta.'/agregar.php';#modal agregar
 include'../vistas/modal/'.$carpeta.'/eliminar.php';#modal eliminar
 
 ?>
 
-
-<div class="row">	
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-</div>
 
 <div class="row">
 <div class="col-md-12">

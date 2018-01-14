@@ -9,20 +9,12 @@ $assets ->principal('Área');
 $assets ->datatables();
 $assets->sweetalert();
 $html   ->header();
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('BASE DE DATOS','ÁREA'); #cinta de ubicación
 include'../vistas/modal/area/agregar.php';#modal agregar
 include'../vistas/modal/area/eliminar.php';#modal eliminar
 
 ?>
-
-
-<div class="row">
-	
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-
-</div>
-
 
 
 

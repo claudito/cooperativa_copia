@@ -9,20 +9,12 @@ $assets ->principal('Menu');
 $assets ->datatables();
 $assets->sweetalert();
 $html   ->header();
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('PAGOS ','MENÚ'); #cinta de ubicación
 include'../vistas/modal/menu/agregar.php';#modal agregar
 include'../vistas/modal/menu/eliminar.php';#modal eliminar
 
 ?>
-
-
-<div class="row">
-	
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-
-</div>
-
 
 <div class="row">
 <div class="col-md-12">

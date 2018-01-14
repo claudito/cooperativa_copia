@@ -9,20 +9,12 @@ $assets ->principal('Familia');
 $assets ->datatables();
 $assets->sweetalert();
 $html   ->header();
+Html::nav('..'); #barra de navegación
+Html::breadcrumbs('BASE DE DATOS','FAMILIA'); #cinta de ubicación
 include'../vistas/modal/familia/agregar.php';#modal agregar
 include'../vistas/modal/familia/eliminar.php';#modal eliminar
 
 ?>
-
-
-<div class="row">
-	
-<div class="col-md-12">
-<?php include'../vistas/nav.php'; ?>
-</div>	
-
-</div>
-
 
 
 <div class="row">
