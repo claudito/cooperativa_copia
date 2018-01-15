@@ -1,19 +1,14 @@
 <?php 
 include'../../autoload.php';
 include'../../session.php';
-Assets::principal('Saldo por Cobrar Socios');
+Assets::principal('Egresos Caja');
 Assets::datatables();
+Assets::datatables_export();
 Assets::sweetalert();
 Html::header();
 Html::nav('../..'); #barra de navegación
-Html::breadcrumbs('ANALÍTICAS','SALDO POR COBRAR - SOCIO'); #cinta de ubicación
+Html::breadcrumbs('ANALÍTICAS','EGRESOS DE CAJA'); #cinta de ubicación
 ?>
-
-<style>
-.table{
-width: 50%;
-}
-</style>
 
 
 <div class="row">
@@ -42,6 +37,6 @@ width: 50%;
 </div>
 
 
-<script src="../../ajax/analitica/saldo-socio.js"></script>
+<script src="../../ajax/analitica/egresos-caja.js"></script>
 <script>loadTabla()</script>
 <?php Html::footer('Cooperativa');  ?>

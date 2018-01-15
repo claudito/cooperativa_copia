@@ -4,7 +4,7 @@ include'../../autoload.php';
 include'../../session.php';
 
 $mes  = $_GET['mes'];
-$tipo = "socio";
+$tipo = "inquilino";
 ?>
 
 <?php if (count(Analitica::saldo_comerciante($mes,$tipo))>0): ?>
@@ -39,13 +39,7 @@ foreach (Analitica::puesto_concepto_mes_det($mes,$tipo) as $key_d => $value_d): 
 <td class="text-center"><?php echo round($value_d['costo'],2); ?></td>
 <td class="text-center"><?php echo round($value_d['pago'],2); ?></td>
 <td class="text-center"><?php echo round(($value_d['costo']-$value_d['pago']),2); ?></td>
-<td class="text-center">
-<?php if ($value_d['tipo']=='diario'): ?>
-<?php echo date_format(date_create($value_d['fecha_pago']),'m-Y'); ?>
-<?php else: ?>
-<?php echo date_format(date_create($value_d['fecha_pago']),'d-m-Y'); ?>	
-<?php endif ?>
-</td>
+<td></td>
 </tr>
 <?php 
 $costo  = $costo + $value_d['costo'];

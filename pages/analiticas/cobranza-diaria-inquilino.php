@@ -1,12 +1,12 @@
 <?php 
 include'../../autoload.php';
 include'../../session.php';
-Assets::principal('Saldo por Cobrar Socios');
+Assets::principal('Cobranza Diara Inquilino');
 Assets::datatables();
 Assets::sweetalert();
 Html::header();
 Html::nav('../..'); #barra de navegación
-Html::breadcrumbs('ANALÍTICAS','SALDO POR COBRAR - SOCIO'); #cinta de ubicación
+Html::breadcrumbs('ANALÍTICAS','COBRANZA DIARIA INQUILINO'); #cinta de ubicación
 ?>
 
 <style>
@@ -21,7 +21,7 @@ width: 50%;
 <form id="consultar" class="form-inline">
 <div class="form-group">
 <div class="input-group">
-<input type="month"  id="idmes" class="form-control" value="<?php echo date('Y-m'); ?>" required>
+<input type="date"  id="idfecha" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
 <span class="input-group-btn">
 <button class="btn btn-primary" type="submit">CONSULTAR</button>
 </span>
@@ -30,6 +30,8 @@ width: 50%;
 </form>
 </div>
 </div>
+
+
 <br>
 
 <div class="row">
@@ -42,6 +44,6 @@ width: 50%;
 </div>
 
 
-<script src="../../ajax/analitica/saldo-socio.js"></script>
+<script src="../../ajax/analitica/cobranza-diaria-inquilino.js"></script>
 <script>loadTabla()</script>
 <?php Html::footer('Cooperativa');  ?>

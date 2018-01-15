@@ -1,12 +1,12 @@
 <?php 
 include'../../autoload.php';
 include'../../session.php';
-Assets::principal('Saldo por Cobrar Socios');
+Assets::principal('Saldo por Cobrar Inquilinos');
 Assets::datatables();
 Assets::sweetalert();
 Html::header();
 Html::nav('../..'); #barra de navegación
-Html::breadcrumbs('ANALÍTICAS','SALDO POR COBRAR - SOCIO'); #cinta de ubicación
+Html::breadcrumbs('ANALÍTICAS','SALDO POR COBRAR - INQUILINO'); #cinta de ubicación
 ?>
 
 <style>
@@ -42,6 +42,6 @@ width: 50%;
 </div>
 
 
-<script src="../../ajax/analitica/saldo-socio.js"></script>
+<script src="../../ajax/analitica/saldo-inquilino.js"></script>
 <script>loadTabla()</script>
 <?php Html::footer('Cooperativa');  ?>

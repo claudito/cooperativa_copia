@@ -26,6 +26,8 @@ $(document).ready(function() {
 
 
 
+
+
 <div class="row">
 <div class="col-md-12">
 <?php if (count(Comerciante::lista())>0): ?>

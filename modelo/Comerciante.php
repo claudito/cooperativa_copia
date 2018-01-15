@@ -193,6 +193,29 @@ return $result;
 }
 
 
+function lista_inquilino()
+{
+	
+try {
+
+$conexion   =  Conexion::get_conexion();
+$query      =  "SELECT * from comerciante where tipo='inquilino'";
+$statement  =  $conexion->prepare($query);
+$statement->execute();
+$result  =  $statement->fetchAll();
+return $result;
+
+} catch (Exception $e) {
+	
+
+  echo "Error:".$e->getMessage();
+
+}
+
+
+}
+
+
 
 
 

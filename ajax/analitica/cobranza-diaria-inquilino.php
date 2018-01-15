@@ -3,14 +3,14 @@
 include'../../autoload.php';
 include'../../session.php';
 
-$mes  = $_GET['mes'];
-$tipo = "socio";
+$fecha  = $_GET['fecha'];
+$tipo   = "inquilino";
 ?>
 
-<?php if (count(Analitica::saldo_comerciante($mes,$tipo))>0): ?>
+<?php if (count(Analitica::saldo_comerciante_diario($fecha,$tipo))>0): ?>
 
 <!-- Cabecera -->
-<?php foreach (Analitica::puesto_concepto_mes_cab($mes,$tipo) as $key_c => $value_c): ?>
+<?php foreach (Analitica::puesto_concepto_diario_cab($fecha,$tipo) as $key_c => $value_c): ?>
 
 <strong><p><?php echo "Puesto N°: ".$value_c['codigo_puesto'].' - '.$value_c['nombres'].' '.$value_c['apellidos']; ?></p></strong>
 <table class="table">
@@ -30,7 +30,7 @@ $tipo = "socio";
 
 $costo = 0;
 $pago  = 0; 
-foreach (Analitica::puesto_concepto_mes_det($mes,$tipo) as $key_d => $value_d): ?>
+foreach (Analitica::puesto_concepto_diario_det($fecha,$tipo) as $key_d => $value_d): ?>
 <!-- Validación de cabecera y detalle -->
 <?php if ($value_c['codigo_puesto']==$value_d['codigo_puesto']): ?>
 <tr>
