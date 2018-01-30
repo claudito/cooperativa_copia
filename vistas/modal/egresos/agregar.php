@@ -9,21 +9,23 @@
 </div>
 <div class="modal-body">
 <form role="form" method="post" id="agregar" autocomplete="off">
-<input type="hidden" name="id_personal" id="" value="<?php echo $_SESSION[KEY.ID] ?>">
-<input type="hidden" name="tipo" id="" class="form-control" value="EC">
+<input type="hidden" name="id_personal"  value="<?php echo $_SESSION[KEY.ID] ?>">
+<input type="hidden" name="tipo"  class="form-control" value="EC">
 
 
 <div class="row">
 <div class="col-md-6">
 <div class="form-group">
 <label>MONTO</label>
-<input type="number" step="any" name="monto" id="" required="" class="form-control" onchange="Mayusculas(this)">
+<input type="number" step="any" name="monto"  required="" class="form-control" onchange="Mayusculas(this)"
+placeholder="00.0" 
+>
 </div>
 </div>
 <div class="col-md-6">
 <div class="form-group">
   <label>DOCUMENTOS INTERNOS</label>
-<select name="documento" id="" class="form-control">
+<select name="documento"  class="form-control">
 <option value="">[Seleccionar]</option>
 <?php 
 $area =  new Documento_interno();
@@ -37,21 +39,19 @@ foreach ($area->lista() as $key => $value): ?>
 
 <div class="form-group">
 <label>CONCEPTO</label>
-<textarea name="concepto" id="" class="form-control" rows="3" required="" onchange="Mayusculas(this)"></textarea>
+<textarea name="concepto"  class="form-control" rows="3" required="" onchange="Mayusculas(this)"></textarea>
 </div>
 
 <div class="row">
 <div class="col-md-6">
 <div class="form-group">
 <label>RESPONSABLE</label>
-<select name="personal" id="" class="form-control">
+<select name="personal"  class="form-control" required="">
 <option value="">[Seleccionar]</option>
 <?php 
-$personal =  new Usuarios();
+$personal = new Personal();
 foreach ($personal->lista() as $key => $value): ?>
-<?php if ($value['tipo']=='admin'): ?>
-<option value="<?php echo $value['id']; ?>"><?php echo $value['nombres']; ?></option>
-<?php endif ?>
+<option value="<?php echo $value['id'] ?>"><?php echo $value['nombres'],' ',$value['apellidos']; ?></option>
 <?php endforeach ?>
 </select>
 </div>
@@ -59,7 +59,7 @@ foreach ($personal->lista() as $key => $value): ?>
 <div class="col-md-6">
 <div class="form-group">
 <label>FECHA</label>
-<input type="date" name="fecha_registro" id="" class="form-control" required="">
+<input type="date" name="fecha_registro"  class="form-control" required="">
 </div>
 </div>
 </div>

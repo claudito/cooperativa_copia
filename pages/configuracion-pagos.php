@@ -26,7 +26,7 @@ Html::breadcrumbs('PAGOS ','CONFIGURACIÓN DE PAGOS'); #cinta de ubicación
 <select name="puesto" id="id_puesto" class="form-control">
 <option value="">[Seleccionar]</option>
 <?php foreach (Concepto_puesto::puesto() as $key => $value): ?>
-<option value="<?php echo $value['codigo_puesto'] ?>"><?php echo "N° ". str_pad($value['codigo_puesto'], 2,'0',STR_PAD_LEFT).' - '.$value['nombres'].' '.$value['apellidos'] ?></option>
+<option value="<?php echo $value['codigo_puesto'] ?>"><?php echo "N° ". $value['numero_puesto'].' - '.$value['nombres'].' '.$value['apellidos'].' - '.$value['estado'].' - '.$value['tipo'] ?></option>
 <?php endforeach ?>
 </select>
 </div>

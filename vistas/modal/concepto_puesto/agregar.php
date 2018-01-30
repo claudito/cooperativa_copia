@@ -2,7 +2,7 @@
 <form id="agregar" autocomplete="off">
 
 <div class="modal fade" id="modal-agregar">
-<div class="modal-dialog">
+<div class="modal-dialog modal-lg">
 <div class="modal-content">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -18,7 +18,7 @@
 <select name="puesto"  class="form-control" required="">
 <option value="">[Seleccionar]</option>
 <?php foreach (Comerciante_puesto::lista() as $key => $value): ?>
-<option value="<?php echo $value['puesto'] ?>"><?php echo "N° ".$value['puesto'].' - '.$value['nombres'].' '.$value['apellidos']; ?></option>	
+<option value="<?php echo $value['idpuesto'] ?>"><?php echo "N° ".$value['puesto'].' - '.$value['nombres'].' '.$value['apellidos'].' - '.$value['estado'].' - '.$value['tipo']; ?></option>	
 <?php endforeach ?>
 </select>
 </div>

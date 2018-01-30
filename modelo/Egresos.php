@@ -127,7 +127,7 @@ $conexion   =  new Conexion();
 $db         =  $conexion->get_conexion();
 $query      =  "
 
-SELECT e.id,e.monto, e.numero,e.monto_letras,e.concepto,e.fecha_registro, p.id as id_personal,d.descripcion as documento,concat(p.nombres,' ',p.apellidos) as personal,p.dni
+SELECT e.id,e.monto, e.numero,e.monto_letras,e.concepto,e.fecha_registro, p.id as id_personal,d.id id_documento,d.descripcion as documento,concat(p.nombres,' ',p.apellidos) as personal,p.dni
 FROM egresos_caja as e 
 INNER JOIN personal as p ON e.id_personal = p.id
 INNER JOIN documento_interno as d ON e.id_documento=d.id

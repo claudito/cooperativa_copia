@@ -1,4 +1,4 @@
- var path  = "http://192.168.1.15/dev/cooperativa/";
+ var path  = "http://192.168.8.243/dev/cooperativa/";
 //var path = "http://cooperativa.perutec.com.pe/";
 
 function logout(){

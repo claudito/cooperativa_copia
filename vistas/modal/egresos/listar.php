@@ -9,7 +9,7 @@ $folder = "egresos";
 
  ?>
 
- <?php if (count($egresos->lista('EC'))>0): ?>
+ <?php if (count($egresos->lista())>0): ?>
 <div class="panel panel-info">
 	<div class="panel-heading">
 	<h3 class="panel-title"><?php echo $titulo ?></h3>
@@ -19,7 +19,7 @@ $folder = "egresos";
 		<div class="table-responsive">
 	<table id="consulta" class="table table-bordered table-condensed">
 		<thead>
-			<tr>
+			<tr class="info">
 				<th>RECIBO</th>
 				<th>MONTO</th>
 				<th>CONCEPTO</th>
@@ -31,7 +31,7 @@ $folder = "egresos";
 		</thead>
 		<tbody>
 	    <?php 
-	    foreach ($egresos->lista('EC') as $key => $value): ?>
+	    foreach ($egresos->lista() as $key => $value): ?>
 	    <tr>
 	    <td><?php echo $value['numero']; ?></td>
 	    <td><?php echo "S/. ".round($value['monto'],2); ?></td>

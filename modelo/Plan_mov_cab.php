@@ -95,29 +95,39 @@ return "error";
 }
 }
 
-function actualizar($id)
+function actualizar($numero)
 {
-	$conexion   =  new Conexion();
-	$db         =  $conexion->get_conexion();
-	$query     =  "UPDATE  plan_mov_cab SET mes=:mes,trabajador=:trabajador,dni=:dni,cargo=:cargo,fecha_emision=:fecha_emision WHERE id=:id";
-	$statement    = $db->prepare($query);
-	$statement->bindParam(':id',$id);
-  $statement->bindParam(':mes',$this->mes);
-	$statement->bindParam(':trabajador',$this->trabajador);
-  $statement->bindParam(':dni',$this->dni);
-  $statement->bindParam(':cargo',$this->cargo);
-  $statement->bindParam(':fecha_emision',$this->fecha_emision);
  
-	
-	if ($statement) 
-	{   
-		$statement->execute();
-		return "ok";
-	} 
-	else 
-	{
-		return "error";
-	}
+try {
+  
+ $conexion  = Conexion::get_conexion();
+  $query     =  "UPDATE  plan_mov_cab SET id_personal=:personal,fecha_emision=:fecha_emision 
+  WHERE numero=:numero";
+  $statement    = $conexion->prepare($query);
+  $statement->bindParam(':numero',$numero);
+  $statement->bindParam(':fecha_emision',$this->fecha_emision);
+  $statement->bindParam(':personal',$this->personal);
+ 
+  if ($statement) 
+  {   
+    $statement->execute();
+    return "ok";
+  } 
+  else 
+  {
+    return "error";
+  }
+
+
+
+} catch (Exception $e) {
+
+  echo "Error: ".$e->getMenssage();
+  
+}
+
+
+
 }
 
 
@@ -127,7 +137,7 @@ function consulta($numero,$campo)
 try {
 $conexion   =  new Conexion();
 $db         =  $conexion->get_conexion();
-$query      =  "SELECT pm.id,pm.numero,p.nombres,p.apellidos,pm.fecha_emision,p.cargo,p.dni FROM plan_mov_cab as pm INNER JOIN personal as p 
+$query      =  "SELECT pm.id,pm.numero,p.nombres,p.apellidos,pm.fecha_emision,p.cargo,p.dni,p.id personal FROM plan_mov_cab as pm INNER JOIN personal as p 
 ON pm.id_personal=p.id WHERE numero=:numero";
 $statement  =  $db->prepare($query);
 $statement->bindParam(':numero',$numero);

@@ -87,10 +87,11 @@ if ($tipo=='diario')
 {
 
 $query     = "
-SELECT p.id,p.codigo_puesto,pt.descripcion puesto,c.descripcion concepto,
-p.id_concepto,p.costo,p.pago,p.fecha,p.tipo,p.fecha_pago,p.fecha_vencimiento,
+SELECT p.id,p.codigo_puesto,puesto.codigo numero,puesto.tipo,
+UPPER(puesto.estado)estado_puesto,UPPER(puesto.tipo)tipo_puesto,
+p.id_concepto,p.costo,p.pago,p.fecha,p.tipo,p.fecha_pago,p.fecha_vencimiento,c.descripcion concepto,
 p.month,p.year,p.day,p.fecha_actualizacion FROM pago as p
-INNER JOIN puesto as pt ON p.codigo_puesto=pt.codigo
+INNER JOIN puesto ON p.codigo_puesto=puesto.id
 INNER JOIN concepto as c ON p.id_concepto=c.id
 WHERE year=:year AND month=:month AND  p.codigo_puesto=:puesto 
 AND p.id_concepto=:concepto AND p.tipo=:tipo";
@@ -109,10 +110,11 @@ else
 {
 
 $query     = "
-SELECT p.id,p.codigo_puesto,pt.descripcion puesto,c.descripcion concepto,
-p.id_concepto,p.costo,p.pago,p.fecha,p.tipo,p.fecha_pago,p.fecha_vencimiento,
+SELECT p.id,p.codigo_puesto,puesto.codigo numero,puesto.tipo,
+UPPER(puesto.estado)estado_puesto,UPPER(puesto.tipo)tipo_puesto,
+p.id_concepto,p.costo,p.pago,p.fecha,p.tipo,p.fecha_pago,p.fecha_vencimiento,c.descripcion concepto,
 p.month,p.year,p.day,p.fecha_actualizacion FROM pago as p
-INNER JOIN puesto as pt ON p.codigo_puesto=pt.codigo
+INNER JOIN puesto ON p.codigo_puesto=puesto.id
 INNER JOIN concepto as c ON p.id_concepto=c.id
 WHERE year=:year AND month=:month AND  p.codigo_puesto=:puesto 
 AND p.id_concepto=:concepto AND p.tipo=:tipo AND p.fecha=:fecha ";

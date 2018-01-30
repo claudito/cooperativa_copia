@@ -4,7 +4,7 @@
 date_default_timezone_set('America/Lima');
 
 #URL Local
-define("URL","http://192.168.1.15/dev/cooperativa/");
+define("URL","http://192.168.8.243/dev/cooperativa/");
 
 #Configuración Remota
 #define("URL","http://cooperativa.perutec.com.pe/");
@@ -12,9 +12,9 @@ define("URL","http://192.168.1.15/dev/cooperativa/");
 #Datos de Conexion al servidor
 define("SERVERBD", "localhost");
 define("USERBD", "root");
-define("PASSBD", "perutec");
+define("PASSBD", "");
 #define("PASSBD", "userperutecdb");
-define("BD", "cooperativa_bd");
+define("BD", "cooperativa_db");
 
 #Variables de Sesión
 define("KEY", date('d-m-Y').'cooperativa');

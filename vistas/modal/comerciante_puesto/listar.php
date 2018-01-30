@@ -30,7 +30,7 @@ $folder = "comerciante_puesto";
 	    <tr>
 	    <td><?php echo $item++; ?></td>
 	    <td><?php echo $value['nombres'].' '.$value['apellidos']; ?></td>
-	    <td><?php echo "N° ".$value['puesto']; ?></td>
+	    <td><?php echo "N° ".$value['puesto'].' - '.$value['estado'].' - '.$value['tipo']; ?></td>
 	    <td>
 	    
         <button class="btn btn-danger btn-sm" data-toggle="modal"

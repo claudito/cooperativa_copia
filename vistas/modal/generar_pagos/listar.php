@@ -12,8 +12,6 @@ $year     =  (isset($_SESSION['year'])) ? $_SESSION['year'] : '' ;
 $day      =  (isset($_SESSION['day'])) ? $_SESSION['day'] : '' ;
 $tipo     =  (isset($_SESSION['tipo'])) ? $_SESSION['tipo'] : '' ;
 
-
-
  ?>
 
  <?php if (count(Pago::lista($puesto,$concepto,$year,$month,$day,$tipo))>0): ?>
@@ -33,7 +31,7 @@ $tipo     =  (isset($_SESSION['tipo'])) ? $_SESSION['tipo'] : '' ;
  		<tbody>
  		<?php foreach (Pago::lista($puesto,$concepto,$year,$month,$day,$tipo) as $key => $value): ?>
 		<tr>
-		<td><?php echo "N° ".$value['codigo_puesto'] ?></td>
+		<td><?php echo "N° ".$value['numero'].' - '.$value['estado_puesto'].' - '.$value['tipo_puesto'] ?></td>
 		<td><?php echo $value['concepto'] ?></td>
 		<td><?php echo round($value['costo'],2) ?></td>
 		<td><?php echo date_format(date_create($value['fecha_pago']),'d/m/Y') ?></td>

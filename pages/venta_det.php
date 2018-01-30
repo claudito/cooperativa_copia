@@ -88,4 +88,4 @@ BOLETA
 <script src="../ajax/app/<?php echo $folder ?>.js"></script>
 
 <script>loadTabla(<?php echo $id ?>)</script>
-<?php $html -> footer('cooperativa'); ?>
+<?php Html::footer('cooperativa'); ?>

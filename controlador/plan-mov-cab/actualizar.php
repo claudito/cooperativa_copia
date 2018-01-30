@@ -4,19 +4,14 @@
 include'../../autoload.php';
 
 
-$numero              =  $_POST['id'];
-$mes             =  $_POST['mes'];
-$trabajador      =  $_POST['trabajador'];
-$dni             =  $_POST['dni'];
-$cargo           =  $_POST['cargo'];
+$numero          =  $_POST['numero'];
+$personal        =  $_POST['personal'];
 $fecha_emision   =  $_POST['fecha_emision'];
 
-
-
 $mensaje  =  new Mensaje();
-$area  =  new Plan_mov_cab($numero,$trabajador,$cargo,$mes,$dni,$fecha_emision,'');
+$objeto   =  new Plan_mov_cab($numero,$personal,$fecha_emision);
 
-$valor    =  $area->actualizar($numero);
+$valor    =  $objeto->actualizar($numero);
 
 if ($valor=='ok') 
 {

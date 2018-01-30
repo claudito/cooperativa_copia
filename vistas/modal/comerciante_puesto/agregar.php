@@ -33,7 +33,7 @@ $folder  =  "comerciante_puesto";
 <select name="puesto"  class="form-control" required="">
 <option value="">[Seleccionar]</option>
 <?php foreach (Comerciante_puesto::puesto() as $key => $value): ?>
-<option value="<?php echo $value['codigo'] ?>">N° <?php echo $value['codigo'] ?></option>	
+<option value="<?php echo $value['id'] ?>">N° <?php echo $value['codigo'].' - '.$value['estado'].' - '.$value['tipo'] ?></option>	
 <?php endforeach ?>
 </select>
 </div>

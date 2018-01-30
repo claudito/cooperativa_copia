@@ -18,7 +18,7 @@ $egresos  = new Egresos();
   <div class="col-md-6">
 <div class="form-group">
 <label >MONTO</label>
-<input type="number" step="any"  name="monto"  class="form-control" value="<?php echo round($egresos->consulta($id,'monto'),2); ?>" >
+<input type="number" step="any"  name="monto"  class="form-control" value="<?php echo round($egresos->consulta($id,'monto'),2); ?>"  placeholder="0.00">
 </div>
 </div>
 <div class="col-md-6">
@@ -48,7 +48,7 @@ foreach ($area->lista() as $key => $value): ?>
 <div class="row">
 <div class="col-md-6">
 <div class="form-group">
-<label>PERSONAL</label>
+<label>RESPONSABLE</label>
 <select name="personal" id="" class="form-control" required="">
 <option value="<?php echo $egresos->consulta($id,'id_personal'); ?>"><?php echo $egresos->consulta($id,'personal'); ?></option>
 <?php 

@@ -26,8 +26,10 @@ function agregar (){
 
 	$conexion   =  new Conexion();
 	$db         =  $conexion->get_conexion();
-	$query      =  "SELECT * FROM puesto WHERE codigo=:codigo";
+	$query      =  "SELECT * FROM puesto WHERE estado=:estado AND tipo=:tipo AND codigo=:codigo";
 	$statement  = $db->prepare($query);
+	$statement->bindParam(':tipo',$this->tipo);
+	$statement->bindParam(':estado',$this->estado);
 	$statement->bindParam(':codigo',$this->codigo);
 	$statement->execute();
 	$result     = $statement->fetchAll();

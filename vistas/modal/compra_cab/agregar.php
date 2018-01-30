@@ -38,13 +38,13 @@
     <div class="col-md-6">
       <div class="form-group">
 <label>SERIE</label>
-<input type="text" name="serie" id="" required="" maxlength="3" class="form-control" onchange="Mayusculas(this)">
+<input type="text" name="serie" id="" required="" maxlength="10" class="form-control" onchange="Mayusculas(this)">
 </div>
     </div>
     <div class="col-md-6">
   <div class="form-group">
 <label>NUMERO</label>
-<input type="text" name="numero" id="" required="" maxlength="6" class="form-control" onchange="Mayusculas(this)">
+<input type="text" name="numero" id="" required="" maxlength="20" class="form-control" onchange="Mayusculas(this)">
 </div>    
     </div>
   </div>

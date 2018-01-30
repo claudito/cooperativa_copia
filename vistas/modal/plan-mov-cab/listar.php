@@ -39,6 +39,8 @@ $folder = "plan-mov-cab";
 	    
 	    <td style="text-align: center;">
 
+	    <button class="btn btn-primary btn-edit btn-sm" data-numero="<?php echo $value['numero']; ?>"><i class="fa fa-edit"></i></button>
+
 	    <button class="btn btn-success btn-sm btn-detalle" data-numero="<?php echo $value['numero']; ?>"><i class="fa fa-plus"></i></button>
 	    
 	    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-eliminar" 
@@ -56,7 +58,7 @@ $folder = "plan-mov-cab";
 
 		</tbody>
 	</table>
- <!-- Script Modal Actualizar -->
+ <!-- Script Modal Detalle -->
    <script>
   	$(".btn-detalle").click(function(){
   		numero = $(this).data("numero");
@@ -74,6 +76,35 @@ $folder = "plan-mov-cab";
  
         <div class="modal-body">
         <div id="form-detalle"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<!-- Fin  Modal Detalle -->
+
+<!-- Script Modal Actualizar -->
+   <script>
+  	$(".btn-edit").click(function(){
+  		numero = $(this).data("numero");
+  		$.get("../vistas/modal/<?php echo $folder; ?>/actualizar.php","numero="+numero,function(data){
+  			$("#form-edit").html(data);
+  		});
+  		$('#modal-actualizar').modal('show');
+  	});
+  </script>
+  
+  <!-- Inicio Modal Actualizar -->
+  <div class="modal fade" id="modal-actualizar" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      	 <div class="modal-header">
+      	 <h4 class="modal-title">Actualizar</h4>
+      	 </div>
+ 
+        <div class="modal-body">
+        <div id="form-edit"></div>
         </div>
 
       </div>

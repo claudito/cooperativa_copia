@@ -80,10 +80,12 @@ function lista()
 try {
 
 $conexion   =  Conexion::get_conexion();
-$query      =  "SELECT cp.id,c.nombres,c.apellidos,c.razon_social,c.ruc,p.codigo puesto,p.descripcion
+$query      =  "SELECT cp.id,c.nombres,c.apellidos,c.razon_social,c.ruc,p.codigo puesto,
+p.id idpuesto,
+p.descripcion,UPPER(p.estado)estado,UPPER(p.tipo)tipo
 FROM comerciante_puesto as cp
 INNER JOIN comerciante as c ON cp.id_comerciante=c.id
-INNER JOIN puesto as p ON cp.codigo_puesto=p.codigo ORDER by p.codigo";
+INNER JOIN puesto as p ON cp.codigo_puesto=p.id ORDER by p.codigo";
 $statement  =  $conexion->prepare($query);
 $statement->execute();
 $result  =  $statement->fetchAll();
@@ -130,8 +132,8 @@ function puesto()
 try {
 
 $conexion   =  Conexion::get_conexion();
-$query      =  "SELECT codigo FROM puesto
-WHERE codigo NOT IN (SELECT codigo_puesto FROM comerciante_puesto) ORDER BY codigo";
+$query      =  "SELECT id,codigo,UPPER(tipo)tipo,UPPER(estado)estado FROM puesto
+WHERE id NOT IN (SELECT codigo_puesto FROM comerciante_puesto) ORDER BY codigo";
 $statement  =  $conexion->prepare($query);
 $statement->execute();
 $result  =  $statement->fetchAll();

@@ -18,6 +18,7 @@ $folder = "puesto";
 	<table id="consulta"  class="table table-bordered table-condensed">
 		<thead>
 			<tr class="info">
+				<th>ID</th>
 				<th>PUESTO</th>
 				<th>DESCRIPCIÓN</th>
 				<th>ESTADO</th>
@@ -31,11 +32,12 @@ $folder = "puesto";
 	    <?php 
 	    foreach (Puesto::lista() as $key => $value): ?>
 	    <tr>
-	    <td><?php echo "N° ".$value['codigo'] ?></td>
-	    <td><?php echo $value['descripcion'] ?></td>
-      <td><?php echo strtoupper($value['estado']) ?></td>
-      <td><?php echo strtoupper($value['tipo']) ?></td>
-	    
+	     <td><?php echo $value['id'] ?></td>
+		<td><?php echo "N° ".$value['codigo'] ?></td>
+		<td><?php echo $value['descripcion'] ?></td>
+		<td><?php echo strtoupper($value['estado']) ?></td>
+		<td><?php echo strtoupper($value['tipo']) ?></td>
+
 	    <td style="text-align: center;">
 		
 		<button class="btn btn-primary btn-sm btn-edit"

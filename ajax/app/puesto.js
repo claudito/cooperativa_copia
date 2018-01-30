@@ -30,7 +30,7 @@ $.ajax({
   success: function(datos){
   $("#mensaje").html(datos);//mostrar mensaje 
   //$('#agregar').modal('hide'); // ocultar  formulario
-  $("#agregar")[0].reset();  //resetear inputs
+  //$("#agregar")[0].reset();  //resetear inputs
   $('#newModal').modal('hide');  // ocultar modal
   loadTabla(1);
   }
