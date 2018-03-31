@@ -4,7 +4,7 @@
 date_default_timezone_set('America/Lima');
 
 #URL Local
-define("URL","http://192.168.8.243/dev/cooperativa/");
+define("URL","http://localhost/dev/cooperativa/");
 
 #Configuración Remota
 #define("URL","http://cooperativa.perutec.com.pe/");

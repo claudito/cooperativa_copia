@@ -102,6 +102,37 @@ return $result;
 }
 
 
+function consulta($puesto,$campo)
+{
+	
+try {
+
+$conexion   =  Conexion::get_conexion();
+$query      =  "SELECT cp.id,c.nombres,c.apellidos,c.razon_social,c.ruc,p.codigo puesto,
+p.id idpuesto,
+p.descripcion,UPPER(p.estado)estado,UPPER(p.tipo)tipo,c.telefono,c.celular,
+c.correo
+FROM comerciante_puesto as cp
+INNER JOIN comerciante as c ON cp.id_comerciante=c.id
+INNER JOIN puesto as p ON cp.codigo_puesto=p.id WHERE p.id=:id";
+$statement  =  $conexion->prepare($query);
+$statement->bindParam(':id',$puesto);
+$statement->execute();
+$result  =  $statement->fetch();
+return $result[$campo];
+
+} catch (Exception $e) {
+	
+
+  echo "Error:".$e->getMessage();
+
+}
+
+
+}
+
+
+
 
 function comerciante()
 {

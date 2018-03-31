@@ -141,7 +141,7 @@ $db         =  $conexion->get_conexion();
 $query      =  "SELECT  * FROM concepto";
 $statement  =  $db->prepare($query);
 $statement->execute();
-$result  =  $statement->fetchAll();
+$result  =  $statement->fetchAll(PDO::FETCH_ASSOC);
 return $result;
 
 

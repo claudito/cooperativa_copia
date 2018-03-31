@@ -127,6 +127,25 @@ return "-";
 }
 
 
+function dia_anterior($fecha) 
+{ 
+     $sol = (strtotime($fecha) - 3600); 
+    return date('Y-m-d', $sol); 
+}  
+
+
+function mes_anterior($fecha_)
+{
+
+$fecha = new DateTime($fecha_);
+
+$fecha->modify('-1 month');
+return $fecha->format('Y-m-d');
+
+}
+
+
+
 }
 
 
